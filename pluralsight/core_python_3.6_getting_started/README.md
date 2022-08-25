@@ -1,0 +1,7 @@
+# Core Python 3: Getting Started
+  
+In this course we'll introduce you to the essentials of the Python language, development culture, and important parts of the Python standard library. This course will help you develop the foundation you need to work on any Python project.  
+
+***What you'll learn***
+
+Python is a big language, and it's important to have a thorough grounding in its key concepts in order to be productive and create high-quality Python programs. In our experience, starting off in the right direction and avoiding early misconceptions is crucial to success with Python, and that's the kind of start we aim to provide. In this course, Core Python 3: Getting Started, we are going to introduce you to the essentials of the Python language as well as important parts of the Python standard library. Some of the major topics that we will cover include: Python's fundamental data types, using functions and modules to organize your code, Python's underlying object model, defining your own types using classes, and working with iteration and iterable objects. By the end this course, you'll have the skills and knowledge to work on almost any Python project, and you'll be in a great position to continue learning more advanced aspects of the language.
