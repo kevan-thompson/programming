@@ -19,7 +19,6 @@ story = urlopen('http://sixty-north.com/c/t.txt')
 #Create an empty list that the story will go into
 story_words = []
 
-
 for line in story :
     #for each line of the story convert it to a list of strings
     line_words = line.decode('utf8').split()
