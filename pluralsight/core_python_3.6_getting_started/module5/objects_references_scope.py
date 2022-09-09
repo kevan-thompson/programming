@@ -5,8 +5,6 @@ Date:           September 8, 2022
 
 Description: Smaller funtions exploring objects, references and scope
 
-
-
 """
 
 #IMPORTS
