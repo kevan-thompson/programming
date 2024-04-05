@@ -9,9 +9,20 @@
 
 // You need to include some header(s) here!
 
+#include <iostream>
+using std::cout;
+using std::endl;
 
 // You need to define your main() function here!
 
+int main(){
+
+    cout << "Hello, world!" << endl;
+    cout << "Greetings from Illinois!" << endl;
+
+    return 0;
+
+}
 
 // Notes:
 
