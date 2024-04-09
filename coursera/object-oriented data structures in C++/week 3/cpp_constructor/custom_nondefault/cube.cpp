@@ -19,6 +19,16 @@ namespace uiuc {
     Cube::Cube(){
         length_ = 1;
     }
+
+    /**********************************************************
+    Descrption: Custom default constructor. With one arguement
+    Paramters:  Initial length, a double
+    Returns:    None
+    **********************************************************/
+    Cube::Cube(double length){
+        length_ = length;
+    }
+    
     
     /**********************************************************
     Descrption: Calculates the volume of the cube

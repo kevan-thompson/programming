@@ -19,9 +19,13 @@ namespace uiuc {
     class Cube{
         //Public Members
         public:
+            //Note You can have more than one constructor
+            
             //Note the no return value or parameters 
             //and has the same name as the class
             Cube(); //custom default constructor
+            //Note the one arguement
+            Cube(double length); //one arguement constructor
             double getVolume();
             double getSurfaceArea();
             double getLength();
