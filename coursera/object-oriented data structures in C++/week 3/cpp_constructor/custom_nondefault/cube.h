@@ -26,6 +26,9 @@ namespace uiuc {
             Cube(); //custom default constructor
             //Note the one arguement
             Cube(double length); //one arguement constructor
+            //Note: Adding any constructor removed the 
+            //automatic default constructor
+            
             double getVolume();
             double getSurfaceArea();
             double getLength();
