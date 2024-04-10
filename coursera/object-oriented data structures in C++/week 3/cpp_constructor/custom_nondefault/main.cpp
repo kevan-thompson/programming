@@ -2,8 +2,7 @@
 Filename:   main.cpp
 Author:     Kevan Thompson
 Date:       April 8, 2024
-Description:A test program to test the custom default 
-            constructors
+Description:A test program to test the custom constructors
 **********************************************************/
 
 #include <iostream>
