@@ -6,8 +6,12 @@ Description:Header file for a the cube class. This class
             provides some simple functions about a cube
             based on it's length.   
 **********************************************************/
-
+#include <iostream>
 #include "cube.h"
+
+using std::cout;
+using std::endl;
+
 
 namespace uiuc {
 
@@ -18,6 +22,8 @@ namespace uiuc {
     **********************************************************/
     Cube::Cube(){
         length_ = 1;
+        //Comment out after testing
+        cout << "Default constuctor invoked" << endl;
     }
 
     /**********************************************************
@@ -28,7 +34,18 @@ namespace uiuc {
     Cube::Cube(double length){
         length_ = length;
     }
-   
+
+    /**********************************************************
+    Descrption: Custom copy constructor. 
+    Paramters:  obj, a reference variable of type Cube to be
+                copied
+    Returns:    None
+    **********************************************************/
+    Cube::Cube(const Cube & obj){
+        length_ = obj.length_;
+        //Comment out after testing
+        cout << "Copy constuctor invoked" << endl;
+    }     
     
     /**********************************************************
     Descrption: Calculates the volume of the cube
