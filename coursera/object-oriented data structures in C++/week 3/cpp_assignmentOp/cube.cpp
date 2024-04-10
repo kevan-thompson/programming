@@ -1,7 +1,7 @@
 /**********************************************************
 Filename:   cube.cpp
 Author:     Kevan Thompson
-Date:       April 9, 2024
+Date:       April 10, 2024
 Description:Header file for a the cube class. This class
             provides some simple functions about a cube
             based on it's length.   
@@ -46,6 +46,19 @@ namespace uiuc {
         //Comment out after testing
         cout << "Copy constuctor invoked" << endl;
     }     
+
+    /**********************************************************
+    Descrption: Custom assignment operator. 
+    Paramters:  obj, a reference variable of type Cube to be
+                copied
+    Returns:    None
+    **********************************************************/
+    Cube & Cube::operator=(const Cube & obj){
+        length_ = obj.length_;
+        //Comment out after testing
+        cout << "Assignment operator invoked" << endl;
+        return *this;
+    }
     
     /**********************************************************
     Descrption: Calculates the volume of the cube
