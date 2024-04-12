@@ -1,7 +1,7 @@
 /**********************************************************
 Filename:   main.cpp
 Author:     Kevan Thompson
-Date:       April 10, 2024
+Date:       April 11, 2024
 Description:A test program to show assignement by value
 **********************************************************/
 
@@ -11,11 +11,18 @@ using std::cout;
 using std::endl;
 using uiuc::Cube;
 
+bool sendCube(Cube C){
+    //Send the Cube somewhere
+    return true;
+}
+
+
 int main(){
     //This should invoke the single arguement constructor
     Cube c(10);
-    //This should invoke the copy constructor
-    Cube myCube = c;
+    //Send the cube to someone
+    //Should call the copy constructor
+    sendCube(c);
     
     return 0;
 }
