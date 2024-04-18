@@ -24,13 +24,13 @@ Description:The Game class is a game of hanoi towers. The
 #include <vector>
 #include "Stack.h"
 
-
-
 class Game{
     public:
+        //Default constructor
         Game();
-        void Solve();
-        
+        //Solved the hanoi towers
+        void solve();
+        //Allows the game class to be printed using "cout <<"
         friend std::ostream & operator<< (std::ostream & os, const Game & game);
         
     private:

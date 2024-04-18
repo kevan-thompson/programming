@@ -24,7 +24,6 @@ class Stack{
         
         //an overload of the operator<< allowing us to 
         //print the stack via "cout <<"
-        
         friend std::ostream & operator<< (std::ostream & os, const Stack & stack);
         
     private:
