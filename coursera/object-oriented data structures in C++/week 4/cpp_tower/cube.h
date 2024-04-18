@@ -15,7 +15,7 @@ namespace uiuc {
     class Cube{
         //Public Members
         public:
-            //Cube(); //custom default constructor
+            Cube(); //custom default constructor
             Cube(double length, HSLAPixel colour); //one arguement constructor
             //Cube(const Cube & obj); //custom copy constuctor 
             //Cube & operator=(const Cube & obj); //custom assignment operator
@@ -30,6 +30,6 @@ namespace uiuc {
         //Private members
         private:
             double length_;
-            HSLAPixel color_;   
+            HSLAPixel colour_;   
     };//end Cube
 }//end uiuc
