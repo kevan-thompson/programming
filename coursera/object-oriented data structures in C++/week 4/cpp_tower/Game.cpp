@@ -60,17 +60,27 @@ Game::Game(){
 }//end constructor
 
 /**********************************************************
-Descrption: This function solves the hanoi towers game, 
-            currently it is a TODO, and will only print
-            the game 
+Descrption: This function solves the hanoi towers game.
+            This solution works on the pattern for a 4 
+            cube, 3 stack puzzel the cubes will always 
+            move in the following way:
+                Between stacks 0, and 1
+                Between stacks 0, and 2
+                Between stacks 1, and 2
+                Repeat
+            With only the direction changing. So this 
+            solution loops over that pattern, doing what
+            ever is the current legal move.  
 Paramters:  None
 Returns:    None
 **********************************************************/
 void Game::solve() {
-  // Prints out the game:
-  cout << *this << endl;
-
-  //TODO Solving the game!
+  
+  while(stacks_[2].size() != 4){
+    _legalMove(0,1);
+    _legalMove(0,2);
+    _legalMove(1,2);
+  }
 }
 
 /**********************************************************
@@ -84,5 +94,55 @@ std::ostream& operator<<(std::ostream & os, const Game & game) {
     os << "Stack[" << i << "]: " << game.stacks_[i];
   }
   return os;
+}
+
+/**********************************************************
+Descrption: This function will move a cube between a stack
+            at index1, and a stack at index2 in whatever 
+            is a legal way to move.
+            
+            Ex: It will only move a cube on top of a larger
+            cube, or onto an empty stack.
+Paramters:  index1 and index2, unsigned values representing
+            a stack index.   
+Returns:    None
+**********************************************************/
+void Game::_legalMove(unsigned index1, unsigned index2){
+
+    //Check if the stack at index1 is empty, and index2 is not empty
+    if(stacks_[index1].size() == 0 && stacks_[index2].size() > 0) {
+        //Move a cube from index2 to index1
+        _move(index2, index1);
+    //Check if the stack at index2 is empty, and index1 is not empty    
+    } else if(stacks_[index1].size() > 0 && stacks_[index2].size() == 0) {
+        //Move a cube from index1 to index2 
+        _move(index1, index2);
+    //Check that both stacks are not empty
+    }else if(stacks_[index1].size() > 0 && stacks_[index2].size() > 0) {
+        //Check if the cube on top of stack[index1] is smaller than the cube on stack[index2] 
+        if(stacks_[index1].peekTop().getLength() < stacks_[index2].peekTop().getLength()){
+            //Move a cube from index1 to index2
+            _move(index1, index2);
+        } else {
+            //Move a cube from index2 to index1
+            _move(index2, index1);
+        }
+    }
+    
+    //Print the current status of the game
+    cout << *this << endl;
+}
+
+/**********************************************************
+Descrption: This function will move a cube between a stack
+            at index1, to a stack at index2.
+Paramters:  index1 and index2, unsigned values representing
+            a stack index.   
+Returns:    None
+**********************************************************/
+void Game::_move(unsigned index1, unsigned index2){
+
+    Cube cube = stacks_[index1].removeTop();
+    stacks_[index2].push_back(cube);
 }
 

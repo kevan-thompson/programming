@@ -34,5 +34,8 @@ class Game{
         friend std::ostream & operator<< (std::ostream & os, const Game & game);
         
     private:
+        
+        void _legalMove(unsigned index1, unsigned index2);
+        void _move(unsigned index1, unsigned index2);
         std::vector<Stack> stacks_;
 };
