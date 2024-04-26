@@ -1,7 +1,7 @@
 /**********************************************************
 Filename:   Game.h
 Author:     Kevan Thompson
-Date:       April 15, 2024
+Date:       April 24, 2024
 Description:The Game class is a game of hanoi towers. The 
             Game consists of a vector of 3 stacks, 
             representing the stacks of cubes in the game.
@@ -34,8 +34,9 @@ class Game{
         friend std::ostream & operator<< (std::ostream & os, const Game & game);
         
     private:
-        
+        //Moves a cube between 2 stacks in what ever direction is legal
         void _legalMove(unsigned index1, unsigned index2);
+        //Moves a cube from a stack at index1 to a stack at index2
         void _move(unsigned index1, unsigned index2);
         std::vector<Stack> stacks_;
 };
