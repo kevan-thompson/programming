@@ -83,6 +83,17 @@ void Game::solve() {
   }
 }
 
+void Game::solve2() {
+  
+  _moves(
+    0, stacks_[0].size() - 1,  //< Move the entire set of cubes, [0 .. size-1]
+    stacks_[0], //< Source stack is [0]
+    stacks_[2], //< Target stack is [2]
+    stacks_[1], //< Spare stack is [1]
+    0   //< Initial depth (for printouts only) is 0
+  );
+}
+
 /**********************************************************
 Descrption: Allows the Game class to be printed using 
             "cout <<"
@@ -145,4 +156,29 @@ void Game::_move(unsigned index1, unsigned index2){
     Cube cube = stacks_[index1].removeTop();
     stacks_[index2].push_back(cube);
 }
+
+void Game::_moveCube(Stack & s1, Stack & s2){
+  Cube cube = s1.removeTop();
+  s2.push_back(cube);
+}
+
+void Game::_moves(unsigned start, unsigned end, Stack & source, Stack & target, Stack & spare, unsigned depth){
+
+    cout << "Planning (depth = " << depth++ << "): Move [" << start << ".." << end << "] from Stack@" << &source << " -> Stack@" << &target << ", Spare@" << &spare << "]" << endl;
+    
+    //Check if we are only moving one Cube
+    if(start == end){
+        //move the cube to the target
+        _moveCube(source, target);
+        cout << *this << endl;
+    }else{
+        //otherwise use our move strategy
+        _moves(start + 1, end, source, spare, target, depth);
+        _moves(start, start, source, target, spare, depth);
+        _moves(start + 1, end, spare, target, source, depth);
+    }
+}        
+
+        
+
 

@@ -30,6 +30,7 @@ class Game{
         Game();
         //Solved the hanoi towers
         void solve();
+        void solve2();
         //Allows the game class to be printed using "cout <<"
         friend std::ostream & operator<< (std::ostream & os, const Game & game);
         
@@ -38,5 +39,8 @@ class Game{
         void _legalMove(unsigned index1, unsigned index2);
         //Moves a cube from a stack at index1 to a stack at index2
         void _move(unsigned index1, unsigned index2);
+        
+        void _moves(unsigned start, unsigned end, Stack & source, Stack & target, Stack & spare, unsigned depth);
+        void _moveCube(Stack & s1, Stack & s2);
         std::vector<Stack> stacks_;
 };
