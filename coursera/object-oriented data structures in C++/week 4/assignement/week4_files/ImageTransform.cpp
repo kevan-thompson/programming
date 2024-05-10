@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
-
+#include <iostream> 
 #include "uiuc/PNG.h"
 #include "uiuc/HSLAPixel.h"
 #include "ImageTransform.h"
-
+using std::cout;
+using std::endl;
 /* ******************
 (Begin multi-line comment...)
 
@@ -93,9 +94,9 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
         distance = sqrt(xDistance * xDistance + yDistance*yDistance);
         distance = (distance * 0.5)/100;
         
-        if(distance > 1)
+        if(distance > 1){
             pixel.l = 0;
-        else
+        }else
             pixel.l = pixel.l * (1 - distance);
             
       }
