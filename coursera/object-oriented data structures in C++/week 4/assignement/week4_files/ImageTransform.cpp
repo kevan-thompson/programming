@@ -68,6 +68,42 @@ PNG grayscale(PNG image) {
  */
 PNG createSpotlight(PNG image, int centerX, int centerY) {
 
+  double distance = 0;
+  int xDistance = 0;
+  int yDistance = 0;
+
+  for (unsigned x = 0; x < image.width(); x++) {
+    for (unsigned y = 0; y < image.height(); y++) {
+      HSLAPixel & pixel = image.getPixel(x, y);
+      if(x < centerX){
+        xDistance = centerX - x;
+      }else{
+        xDistance = x - centerX;
+      }
+      
+      if(y < centerY){
+        yDistance = centerY - y;
+      }else{
+        yDistance = y - centerY;
+      }
+      
+      if((x == centerX) && (y ==centerY)){
+        //Do nothing
+      } else {
+        distance = sqrt(xDistance * xDistance + yDistance*yDistance);
+        distance = (distance * 0.5)/100;
+        
+        if(distance > 1)
+            pixel.l = 0;
+        else
+            pixel.l = pixel.l * (1 - distance);
+            
+      }
+      
+    }
+  }
+
+
   return image;
   
 }
@@ -84,6 +120,18 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
  * @return The illinify'd image.
 **/
 PNG illinify(PNG image) {
+
+  for (unsigned x = 0; x < image.width(); x++) {
+    for (unsigned y = 0; y < image.height(); y++) {
+      HSLAPixel & pixel = image.getPixel(x, y);
+
+      if((pixel.h >= 103) && (pixel.h <= 283)){
+        pixel.h = 216;
+      } else {
+        pixel.h = 11;
+      }
+    }
+  }
 
   return image;
 }
@@ -103,5 +151,28 @@ PNG illinify(PNG image) {
 */
 PNG watermark(PNG firstImage, PNG secondImage) {
 
+  /// This function is already written for you so you can see how to
+  /// interact with our PNG class.
+  for (unsigned x = 0; x < firstImage.width(); x++) {
+    for (unsigned y = 0; y < firstImage.height(); y++) {
+      HSLAPixel & pixel = firstImage.getPixel(x, y);
+      HSLAPixel & pixel2 = secondImage.getPixel(x, y);
+
+      // `pixel` is a reference to the memory stored inside of the PNG `image`,
+      // which means you're changing the image directly. No need to `set`
+      // the pixel since you're directly changing the memory of the image.
+      if (pixel2.l == 1){
+        if(pixel.l > 0.8){
+            pixel.l = 1.0;
+        }else{
+            pixel.l = pixel.l + 0.2;
+        }
+      }
+    }
+  }
+
   return firstImage;
+  
 }
+
+
